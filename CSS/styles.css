@@ -1,27 +1,66 @@
-@import url(./reset.css);
 @import url("https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap");
 
 body {
   height: 300vh;
   overflow-x: hidden;
   margin: 0;
+  user-select: none;
 }
 
 .panel {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 2rem;
   min-height: 100vh;
-  background-color: #333;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
   color: white;
 }
 
 h1 {
-  font-size: 5vw;
+  font-size: clamp(2rem, 5vw, 6rem);
   text-align: center;
   font-family: "Luckiest Guy", cursive;
   font-weight: 400;
   font-style: normal;
+  letter-spacing: 0.05em;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.scroll-hint {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  opacity: 0.7;
+  animation: fadeInUp 1s ease 0.8s both;
+}
+
+.scroll-hint span {
+  font-family: sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.scroll-arrow {
+  width: 24px;
+  height: 24px;
+  border-right: 2px solid white;
+  border-bottom: 2px solid white;
+  transform: rotate(45deg);
+  animation: bounce 1.4s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: rotate(45deg) translateY(0); }
+  50% { transform: rotate(45deg) translateY(6px); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 0.7; transform: translateY(0); }
 }
 
 .comparisonSection {
